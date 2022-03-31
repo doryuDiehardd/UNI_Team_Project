@@ -1,6 +1,12 @@
 const express = require('express');
+const mongoose = require('mongoose');
 
 const app = express();
+
+const ChatDB = require('./config/keys').MongoChatDBURI;
+    mongoose.connect(ChatDB)
+        .then(() => console.log('Connected to chat db'))
+        .catch((err) => console.log(err));
 
 // Routes
 app.use('/auth', require('./routes/auth'));
