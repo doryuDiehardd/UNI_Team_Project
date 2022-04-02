@@ -23,7 +23,15 @@ router.put('/:id', async (req, res) => {
     res.sendStatus(200);
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
+    try{
+        await ProfileService.deleteUser(req.params.id);
+    }
+    catch(err){
+        console.log(err);
+        return res.sendStatus(500);
+    }
+
     res.sendStatus(200);
 });
 

@@ -9,6 +9,10 @@ const ProfileService = {
 
     updateUserData: (id, data) =>{
         return UserModel.findOneAndUpdate({"_id": id}, {"$set": data});
+    },
+
+    deleteUser: (id) => {
+        return UserModel.deleteOne({ "_id": id });
     }
 }
 

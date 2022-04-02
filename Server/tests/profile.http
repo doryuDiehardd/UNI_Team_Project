@@ -10,3 +10,7 @@ Content-Type: application/json
     "email": "some@e.mail",
     "password": "alsdgasdg"
 }
+
+###
+
+DELETE http://localhost:5000/profile/6248355b41e3725fcbf332eb HTTP/1.1
