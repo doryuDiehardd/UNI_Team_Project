@@ -42,7 +42,7 @@ router.post('/register', async (req, res) => {
             res.sendStatus(500);
         }
     }
-    
+
     res.sendStatus(200);
 });
 
@@ -92,6 +92,7 @@ router.get('/logout', (req, res) => {
 });
 
 router.post('/password-recover', (req, res) => {
+    // Feature under consideration
     res.sendStatus(200);
 });
 
