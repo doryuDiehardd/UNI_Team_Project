@@ -5,6 +5,7 @@ const passport = require('passport');
 
 const AuthService = require('../services/AuthService');
 const ValidationService = require('../services/ValidationService');
+const UserExistsException = require('../services/exceptions/UserExistsException');
 
 router.post('/register', async (req, res) => {
     data = {
@@ -31,12 +32,18 @@ router.post('/register', async (req, res) => {
 
     try{
         await AuthService.registerUser(data);
-        res.sendStatus(200);
     }
     catch (err) {
-        console.log(err);
-        res.sendStatus(500);
+        if (err instanceof UserExistsException){
+            return res.status(400).json({ registration_err: err.msg });
+        }
+        else{
+            console.log(err);
+            res.sendStatus(500);
+        }
     }
+    
+    res.sendStatus(200);
 });
 
 router.post('/login', (req, res, next) => {
