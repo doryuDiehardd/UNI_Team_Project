@@ -5,7 +5,7 @@ const UserModel = require('../models/UserModel');
 
 module.exports = function(passport) {
     passport.use(
-        new LocalStrategy({ usernameField: 'user_name' }, (user_name, password, done) => {
+        new LocalStrategy({ usernameField: 'username' }, (user_name, password, done) => {
             // Mathch user
             UserModel.findOne({ user_name: user_name })
                 .then(user => {

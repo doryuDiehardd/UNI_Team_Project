@@ -6,7 +6,7 @@ const ValidationService = require('../services/ValidationService');
 
 router.post('/register', async (req, res) => {
     data = {
-        user_name: req.body.user_name ? req.body.user_name : null,
+        username: req.body.username ? req.body.username : null,
         pic_path: 'placeholder',
         email: req.body.email ? req.body.email : null,
         password: req.body.password ? req.body.password : null
