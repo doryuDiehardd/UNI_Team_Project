@@ -5,12 +5,12 @@ const UserModel = require('../models/UserModel');
 
 module.exports = function(passport) {
     passport.use(
-        new LocalStrategy({ usernameField: 'username' }, (username, password, done) => {
+        new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
             // Mathch user
-            UserModel.findOne({ username: username })
+            UserModel.findOne({ email: email })
                 .then(user => {
                     if (!user){
-                        return done(null, false, {message: 'No user with givent username is registered' });
+                        return done(null, false, {message: 'No user with given email is registered' });
                     }
 
                     // Match password
