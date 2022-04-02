@@ -5,9 +5,9 @@ const UserModel = require('../models/UserModel');
 
 module.exports = function(passport) {
     passport.use(
-        new LocalStrategy({ usernameField: 'username' }, (user_name, password, done) => {
+        new LocalStrategy({ usernameField: 'username' }, (username, password, done) => {
             // Mathch user
-            UserModel.findOne({ user_name: user_name })
+            UserModel.findOne({ username: username })
                 .then(user => {
                     if (!user){
                         return done(null, false, {message: 'No user with givent username is registered' });
