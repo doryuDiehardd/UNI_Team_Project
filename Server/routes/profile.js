@@ -5,7 +5,16 @@ const ProfileService = require('../services/ProfileService');
 const ValidationService = require('../services/ValidationService');
  
 router.get('/:id', async (req, res) => {
-    const user_data = await ProfileService.getUserData(req.params.id);
+    let user_data;
+    
+    try{
+        user_data = await ProfileService.getUserData(req.params.id);
+    }
+    catch(err){
+        console.log(err);
+        res.sendStatus(500);
+    }
+
     res.status(200).json(user_data);
 });
 

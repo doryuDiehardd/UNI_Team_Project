@@ -12,7 +12,7 @@ const ProfileService = {
     },
 
     deleteUser: (id) => {
-        return UserModel.deleteOne({ "_id": id });
+        return UserModel.deleteOne({"_id": id});
     }
 }
 
