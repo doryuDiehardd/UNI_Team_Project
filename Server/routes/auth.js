@@ -80,6 +80,7 @@ router.post('/login', (req, res, next) => {
 });
 
 router.get('/logout', (req, res) => {
+    req.logout();
     res.sendStatus(200);
 });
 
