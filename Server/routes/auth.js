@@ -21,11 +21,11 @@ router.post('/register', async (req, res) => {
 
     const errors = ValidationService.validateData_IsAllFilled(data);
     if (Object.keys(errors).length){
-        return res.json(errors).status(422);
+        return res.status(422).json(errors);
     }
 
     if (!ValidationService.validateEmail(data.email)){
-        return res.json({ email_err: 'Invalid email' }).status(422);
+        return res.status(422).json({ email_err: 'Invalid email' });
     }
 
     //
@@ -59,11 +59,11 @@ router.post('/login', (req, res, next) => {
 
     const errors = ValidationService.validateData_IsAllFilled(data);
     if (Object.keys(errors).length){
-        return res.json(errors).status(422);
+        return res.status(422).json(errors);
     }
 
     if (!ValidationService.validateEmail(data.email)){
-        return res.json({ email_err: 'Invalid email' }).status(422);
+        return res.status(422).json({ email_err: 'Invalid email' });
     }
 
     //
@@ -73,8 +73,8 @@ router.post('/login', (req, res, next) => {
 
         if (!user) {
             return res
-                .json({ login_err: 'Wrong credentials were entered' })
-                .status(422);
+                .status(422)
+                .json({ login_err: 'Wrong credentials were entered' });
         }
 
         req.login(user, loginErr => {
