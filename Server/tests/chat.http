@@ -1,0 +1,7 @@
+POST http://localhost:5000/chat/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "something",
+    "owner_id": "62482ad51f5d80e4751e93cf"
+}
