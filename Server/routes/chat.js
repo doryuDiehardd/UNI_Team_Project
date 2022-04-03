@@ -50,10 +50,6 @@ router.get('/:id', async (req, res) => {
     res.status(200).json(chat_data);
 });
 
-router.put('/:id', (req, res) => {
-    res.sendStatus(200);
-});
-
 router.delete('/:id', async (req, res) => {
     try{
         await ChatService.deleteChat(req.params.id);
@@ -65,5 +61,41 @@ router.delete('/:id', async (req, res) => {
     
     res.sendStatus(200);
 });
+
+router.put('/:id', (req, res) => {
+    // TODO change chat name
+    // TODO change chat owner
+    // TODO add/remove related users
+    // TODO add/remove kicked users users
+
+    res.sendStatus(200);
+});
+
+
+//* @route GET /messages
+//* @desc get all messages
+
+//* @route POST /messages
+//* @desc add new message
+
+//* @route PUT /messages/:id
+//* @desc edit specific message + mark as edited / mark message as read
+
+//* @route DELETE /messages/:id
+//* @desc delete spescific message
+
+
+//* @route GET /join_requests
+//* @desc get all join requests
+
+//* @route POST /join_requests
+//* @desc create join request
+
+//* @route PUT /join_requests/:id
+//* @desc accept join request
+
+//* @route DELETE /join_requests/:id
+//* @desc delete specific join request
+
 
 module.exports = router;
