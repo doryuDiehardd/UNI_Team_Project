@@ -36,8 +36,18 @@ router.post('/create', async (req, res) => {
     res.sendStatus(200);
 });
 
-router.get('/:id', (req, res) => {
-    res.sendStatus(200);
+router.get('/:id', async (req, res) => {
+    let chat_data;
+
+    try{
+        chat_data = await ChatService.getChatData(req.params.id);
+    }
+    catch(err) {
+        console.log(err);
+        return res.sendStatus(500);
+    }
+
+    res.status(200).json(chat_data);
 });
 
 router.put('/id:', (req, res) => {

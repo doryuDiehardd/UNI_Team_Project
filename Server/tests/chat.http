@@ -5,3 +5,7 @@ Content-Type: application/json
     "name": "something",
     "owner_id": "62482ad51f5d80e4751e93cf"
 }
+
+###
+
+GET http://localhost:5000/chat/624984375744d7ebca4cf2e6 HTTP/1.1

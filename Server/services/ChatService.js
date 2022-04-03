@@ -1,11 +1,12 @@
 const ChatModel = require('../models/ChatModel');
 
 const ChatService = {
-    createChat: async (data) => {
-        try{
-            await ChatModel.create(data);
-        }
-        catch(err) { throw err }
+    createChat: (data) => {
+        return ChatModel.create(data);
+    },
+    
+    getChatData: (id) => {
+        return ChatModel.findById(id);
     }
 }
 
