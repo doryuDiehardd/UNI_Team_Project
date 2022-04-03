@@ -7,6 +7,10 @@ const ChatService = {
     
     getChatData: (id) => {
         return ChatModel.findById(id);
+    },
+
+    deleteChat: (id) => {
+        return ChatModel.deleteOne({'_id': id});
     }
 }
 

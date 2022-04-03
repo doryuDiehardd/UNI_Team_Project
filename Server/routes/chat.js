@@ -50,7 +50,19 @@ router.get('/:id', async (req, res) => {
     res.status(200).json(chat_data);
 });
 
-router.put('/id:', (req, res) => {
+router.put('/:id', (req, res) => {
+    res.sendStatus(200);
+});
+
+router.delete('/:id', async (req, res) => {
+    try{
+        await ChatService.deleteChat(req.params.id);
+    }
+    catch(err){
+        console.log(err);
+        res.sendStatus(500);
+    }
+    
     res.sendStatus(200);
 });
 
