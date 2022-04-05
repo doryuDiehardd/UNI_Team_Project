@@ -56,20 +56,62 @@ router.delete('/:id', async (req, res) => {
     }
     catch(err){
         console.log(err);
-        res.sendStatus(500);
+        return res.sendStatus(500);
     }
     
     res.sendStatus(200);
 });
 
-router.put('/:id', (req, res) => {
-    // TODO change chat name
-    // TODO change chat owner
+router.put('/:id', async (req, res) => {
+    let filtered_data = ValidationService.filterFields(req.body, ['name', 'owner_id']);
+
+    try{
+        await ChatService.updateChatData(req.params.id, filtered_data);
+    }
+    catch(err){
+        console.log(err);
+        return res.sendStatus(500);
+    }
+
     // TODO add/remove related users
     // TODO add/remove kicked users users
 
     res.sendStatus(200);
 });
+
+//
+// related_users 
+//
+
+router.put('/:id/related_users', async (req, res) => {
+    if (req.body.new_related_user_id === undefined){
+        return res.status(422).json({related_user_err: 'new_related_user_id field expected'});
+    }
+
+    try{
+        await ChatService.addRelatedUser(req.params.id, req.body.new_related_user_id);
+    }
+    catch(err){
+        console.log(err);
+        return res.sendStatus(500);
+    }
+
+    res.sendStatus(200);
+});
+
+router.delete('/:chat_id/related_users/:user_id', async (req, res) => {
+    try{
+        await ChatService.removeRelatedUser(req.params.chat_id, req.params.user_id);
+    }
+    catch(err){
+        console.log(err);
+        return res.sendStatus(500);
+    }
+    
+    res.sendStatus(200);
+});
+
+// 
 
 
 //* @route GET /messages
