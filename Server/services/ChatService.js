@@ -85,6 +85,37 @@ const ChatService = {
 
     deleteMessage: (chat_id, message_id) => {
         return ChatModel.findOneAndUpdate({'_id': chat_id}, {'$pull': {'messages': {'_id': message_id}}});
+    },
+
+
+    getAllJoinRequests: async function(chat_id){
+        let chat;
+
+        try{
+            chat = await this.getChatData(chat_id);
+        }
+        catch(err) { throw err }
+
+        return chat.join_requests;
+    },
+
+    addJoinRequest: (chat_id, request_data) => {
+        return ChatModel.findOneAndUpdate({'_id': chat_id}, {'$push': {join_requests: request_data}});
+    },
+
+    getJoinRequest: async (chat_id, message_id) => {
+        let data;
+
+        try{
+            data = await ChatModel.findOne({'join_requests._id': message_id});
+        }
+        catch(err) { throw err }
+
+        return data.join_requests[0];
+    },
+
+    deleteJoinRequest: (chat_id, request_id) => {
+        return ChatModel.findOneAndUpdate({'_id': chat_id}, {'$pull': {'join_requests': {'_id': request_id}}});
     }
 }
 

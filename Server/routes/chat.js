@@ -178,6 +178,7 @@ router.post('/:id/messages', async (req, res) => {
     if (Object.keys(errors).length){
         return res.status(422).json(errors);
     }
+
     //
 
     try{
@@ -236,21 +237,87 @@ router.delete('/:chat_id/messages/:message_id', async (req, res) => {
 
 //
 
-//* @route GET /join_requests
-//* @desc get all join requests
+// 
+// join_requests
+// 
 
-//* @route POST /join_requests
-//* @desc create join request
+// @desc get all join requests
+router.get('/:id/join_requests', async (req, res) => {
+    let join_requests;
+    
+    try{
+        join_requests = await ChatService.getAllJoinRequests(req.params.id);
+    }
+    catch(err){
+        console.log(err);
+        return res.sendStatus(500);
+    }
 
-// * @route GET /join_requests/:id
-// * @desc get specific join request
+    res.status(200).json(join_requests);
+})
 
+// @desc create join request
+router.post('/:id/join_requests', async (req, res) => {
+    data = {
+        requester_id: req.body.requester_id || null,
+        invited_user_id: req.body.invited_user_id || null
+    }
 
-//* @route PUT /join_requests/:id
-//* @desc accept join request
+    //
+    // Validation
+    //
 
-//* @route DELETE /join_requests/:id
-//* @desc delete specific join request
+    const errors = ValidationService.validateData_IsAllFilled(data);
+    if (Object.keys(errors).length){
+        return res.status(422).json(errors);
+    }
 
+    //
+
+    try{
+        await ChatService.addJoinRequest(req.params.id, data);
+    }
+    catch(err){
+        console.log(err);
+        return res.sendStatus(500);
+    }
+
+    res.sendStatus(200);
+});
+
+// @desc get specific join request
+router.get('/:chat_id/join_requests/:request_id', async (req, res) => {
+    let join_request;
+    
+    try{
+        join_request = await ChatService.getJoinRequest(req.params.chat_id, req.params.request_id);
+    }
+    catch(err){
+        console.log(err);
+        res.sendStatus(500);
+    }
+
+    res.status(200).json(join_request);
+});
+
+// @desc accept join request ?
+router.put('/:chat_id/join_requests/:request_id', (req, res) => {
+    // Route under consideration
+    // Add 'status' field? (requested, seen, accepted)
+    res.sendStatus(200);
+});
+
+// @desc delete specific join request
+router.delete('/:chat_id/join_requests/:request_id', async (req, res) => {
+    try{
+        await ChatService.deleteJoinRequest(req.params.chat_id, req.params.request_id);
+    }
+    catch(err){
+        console.log(err);
+        res.sendStatus(500);
+    }
+    
+    res.sendStatus(200);
+});
 
 module.exports = router;
