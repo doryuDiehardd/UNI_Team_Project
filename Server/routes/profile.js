@@ -21,6 +21,16 @@ router.get('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
     let filtered_data = ValidationService.filterFields(req.body, ['username', 'email']);
 
+    // 
+    // Validation
+    // 
+
+    if (!Object.keys(filtered_data).length){
+        return res.status(422).json({data_err: 'Incorrect / no data provided'});
+    }
+
+    // 
+
     try{
         await ProfileService.updateUserData(req.params.id, filtered_data);
     }
