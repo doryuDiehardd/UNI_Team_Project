@@ -3,7 +3,8 @@ const router = express.Router();
 
 const ProfileService = require('../services/ProfileService');
 const ValidationService = require('../services/ValidationService');
- 
+
+// @desc get user by id
 router.get('/:id', async (req, res) => {
     let user_data;
     
@@ -18,6 +19,7 @@ router.get('/:id', async (req, res) => {
     res.status(200).json(user_data);
 });
 
+// @desc update user by id
 router.put('/:id', async (req, res) => {
     let filtered_data = ValidationService.filterFields(req.body, ['username', 'email']);
 
@@ -42,6 +44,7 @@ router.put('/:id', async (req, res) => {
     res.sendStatus(200);
 });
 
+// @delete user by id
 router.delete('/:id', async (req, res) => {
     try{
         await ProfileService.deleteUser(req.params.id);
