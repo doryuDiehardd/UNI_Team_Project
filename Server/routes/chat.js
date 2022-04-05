@@ -73,9 +73,6 @@ router.put('/:id', async (req, res) => {
         return res.sendStatus(500);
     }
 
-    // TODO add/remove related users
-    // TODO add/remove kicked users users
-
     res.sendStatus(200);
 });
 
@@ -147,24 +144,97 @@ router.delete('/:chat_id/kicked_users/:user_id', async (req, res) => {
 
 //
 
+//
+// messages
+//
 
+// @desc get all messages
+router.get('/:id/messages', async (req, res) => {
+    let messages;
 
+    try{
+        messages = await ChatService.getAllMessages(req.params.id);
+    }
+    catch(err){
+        console.log(err);
+        return res.sendStatus(500);
+    }
 
-//* @route GET /messages
-//* @desc get all messages
+    res.status(200).json(messages);
+});
 
-//* @route POST /messages
-//* @desc add new message
+// @desc add new message
+router.post('/:id/messages', async (req, res) => {
+    data = {
+        msg: req.body.msg || null,
+        owner_id: req.body.owner_id || null
+    }
 
-//* @route GET /messages/:id
-//* @desc get specific message
+    //
+    // Validation
+    //
 
-//* @route PUT /messages/:id
-//* @desc edit specific message + mark as edited / mark message as read
+    const errors = ValidationService.validateData_IsAllFilled(data);
+    if (Object.keys(errors).length){
+        return res.status(422).json(errors);
+    }
+    //
 
-//* @route DELETE /messages/:id
-//* @desc delete spescific message
+    try{
+        await ChatService.addMessage(req.params.id, data);
+    }
+    catch(err){
+        console.log(err);
+        return res.sendStatus(500);
+    }
 
+    res.sendStatus(200);
+});
+
+// @desc get specific message
+router.get('/:chat_id/messages/:message_id', async (req, res) => {
+    let message;
+    
+    try{
+        message = await ChatService.getMessage(req.params.chat_id, req.params.message_id);
+    }
+    catch(err){
+        console.log(err);
+        return res.sendStatus(500);
+    }
+
+    res.status(200).json(message);
+});
+
+// @desc edit specific message + mark as edited / mark message as read
+router.put('/:chat_id/messages/:message_id', async (req, res) => {
+    let filtered_data = ValidationService.filterFields(req.body, ['msg', 'is_viewed']);
+
+    try{
+        await ChatService.updateMessage(req.params.chat_id, req.params.message_id, filtered_data);
+    }
+    catch(err){
+        console.log(err);
+        return req.sendStatus(500);
+    }
+    
+    res.sendStatus(200);
+});
+
+// @desc delete spescific message
+router.delete('/:chat_id/messages/:message_id', async (req, res) => {
+    try{
+        await ChatService.deleteMessage(req.params.chat_id, req.params.message_id);
+    }
+    catch(err){
+        console.log(err);
+        return req.sendStatus(500);
+    }
+
+    res.sendStatus(200);
+});
+
+//
 
 //* @route GET /join_requests
 //* @desc get all join requests

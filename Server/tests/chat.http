@@ -49,3 +49,34 @@ Content-Type: application/json
 ###
 
 DELETE http://localhost:5000/chat/624984375744d7ebca4cf2e6/kicked_users/624984375744d7ebca4cf2e6
+
+### MESSAGES
+
+GET http://localhost:5000/chat/624984375744d7ebca4cf2e6/messages HTTP/1.1
+
+###
+
+POST http://localhost:5000/chat/624984375744d7ebca4cf2e6/messages HTTP/1.1
+Content-Type: application/json
+
+{
+    "msg": "new message",
+    "owner_id": "624984375744d7ebca4cf2e6"
+}
+
+###
+
+GET http://localhost:5000/chat/624984375744d7ebca4cf2e6/messages/624bf3477993a4b9775092ee HTTP/1.1
+
+###
+
+PUT http://localhost:5000/chat/624984375744d7ebca4cf2e6/messages/624bfbe2fcde838fed09b220 HTTP/1.1
+Content-Type: application/json
+
+{
+    "msg": "edited message x2"
+}
+
+###
+
+DELETE http://localhost:5000/chat/624984375744d7ebca4cf2e6/messages/624bfbe2fcde838fed09b220 HTTP/1.1

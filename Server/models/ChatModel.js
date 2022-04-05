@@ -28,8 +28,14 @@ const chatSchema = new mongoose.Schema({
                 ref: 'User',
                 required: true
             },
-            is_edited: Boolean,
-            is_viewed: Boolean
+            is_edited: {
+                type: Boolean,
+                default: false
+            },
+            is_viewed: {
+                type: Boolean,
+                default: false
+            }
         }
     ],
 
