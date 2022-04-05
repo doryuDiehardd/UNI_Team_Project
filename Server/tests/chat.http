@@ -24,15 +24,28 @@ Content-Type: application/json
     "owner_id": "624984375744d7ebca4cf2e6"
 }
 
-###
+### RELATED_USERS
 
 PUT http://localhost:5000/chat/624984375744d7ebca4cf2e6/related_users HTTP/1.1
 Content-Type: application/json
 
 {
-    "new_related_usdafser_id": "624984375744d7ebca4cf2e6"
+    "new_related_user_id": "624984375744d7ebca4cf2e6"
 }
 
 ###
 
 DELETE http://localhost:5000/chat/624984375744d7ebca4cf2e6/related_users/624984375744d7ebca4cf2e6 HTTP/1.1
+
+### KICKED_USERS
+
+PUT http://localhost:5000/chat/624984375744d7ebca4cf2e6/kicked_users HTTP/1.1
+Content-Type: application/json
+
+{
+    "new_kicked_usasdfer_id": "624984375744d7ebca4cf2e6"
+}
+
+###
+
+DELETE http://localhost:5000/chat/624984375744d7ebca4cf2e6/kicked_users/624984375744d7ebca4cf2e6

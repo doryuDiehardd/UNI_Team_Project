@@ -111,7 +111,43 @@ router.delete('/:chat_id/related_users/:user_id', async (req, res) => {
     res.sendStatus(200);
 });
 
-// 
+//
+
+//
+// kicked_users
+//
+
+router.put('/:id/kicked_users', async (req, res) => {
+    if (req.body.new_kicked_user_id === undefined){
+        return res.status(422).json({kicked_user_err: 'new_kicked_user_id field expected'});
+    }
+
+    try{
+        await ChatService.addKickedUser(req.params.id, req.body.new_kicked_user_id)
+    }
+    catch(err){
+        console.log(err);
+        return res.sendStatus(500);
+    }
+
+    res.sendStatus(200);
+});
+
+router.delete('/:chat_id/kicked_users/:user_id', async (req, res) => {
+    try{
+        await ChatService.removeKickedUser(req.params.chat_id, req.params.user_id);
+    }
+    catch(err){
+        console.log(err);
+        return res.sendStatus(500);
+    }
+
+    res.sendStatus(200);
+});
+
+//
+
+
 
 
 //* @route GET /messages

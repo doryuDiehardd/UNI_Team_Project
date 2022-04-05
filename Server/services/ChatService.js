@@ -1,3 +1,4 @@
+const { findOneAndUpdate } = require('../models/ChatModel');
 const ChatModel = require('../models/ChatModel');
 
 const ChatService = {
@@ -23,6 +24,14 @@ const ChatService = {
 
     removeRelatedUser: (chat_id, user_id) => {
         return ChatModel.findOneAndUpdate({'_id': chat_id}, {'$pull': {related_users: user_id}});
+    },
+
+    addKickedUser: (chat_id, user_id) => {
+        return ChatModel.findOneAndUpdate({'_id': chat_id}, {'$push': {kicked_users: user_id}});
+    },
+    
+    removeKickedUser: (chat_id, user_id) => {
+        return ChatModel.findOneAndUpdate({'_id': chat_id}, {'$pull': {kicked_users: user_id}});
     }
 }
 
