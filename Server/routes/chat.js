@@ -4,6 +4,7 @@ const router = express.Router();
 const ChatService = require('../services/ChatService');
 const ValidationService = require('../services/ValidationService');
 
+// @desc create new chat
 router.post('/create', async (req, res) => {
     data = {
         name: req.body.name || null,
@@ -36,6 +37,7 @@ router.post('/create', async (req, res) => {
     res.sendStatus(200);
 });
 
+//  @desc get chat by id
 router.get('/:id', async (req, res) => {
     let chat_data;
 
@@ -50,6 +52,7 @@ router.get('/:id', async (req, res) => {
     res.status(200).json(chat_data);
 });
 
+// @desc delete chat
 router.delete('/:id', async (req, res) => {
     try{
         await ChatService.deleteChat(req.params.id);
@@ -62,6 +65,7 @@ router.delete('/:id', async (req, res) => {
     res.sendStatus(200);
 });
 
+// @desc update chat data
 router.put('/:id', async (req, res) => {
     let filtered_data = ValidationService.filterFields(req.body, ['name', 'owner_id']);
 
@@ -80,6 +84,7 @@ router.put('/:id', async (req, res) => {
 // related_users 
 //
 
+// @desc add user to related_users array in specific chat
 router.put('/:id/related_users', async (req, res) => {
     if (req.body.new_related_user_id === undefined){
         return res.status(422).json({related_user_err: 'new_related_user_id field expected'});
@@ -96,6 +101,7 @@ router.put('/:id/related_users', async (req, res) => {
     res.sendStatus(200);
 });
 
+// @desc remove user from related_users array in specific chat
 router.delete('/:chat_id/related_users/:user_id', async (req, res) => {
     try{
         await ChatService.removeRelatedUser(req.params.chat_id, req.params.user_id);
@@ -114,6 +120,7 @@ router.delete('/:chat_id/related_users/:user_id', async (req, res) => {
 // kicked_users
 //
 
+// @desc add user to kicked_users array in specific chat
 router.put('/:id/kicked_users', async (req, res) => {
     if (req.body.new_kicked_user_id === undefined){
         return res.status(422).json({kicked_user_err: 'new_kicked_user_id field expected'});
@@ -130,6 +137,7 @@ router.put('/:id/kicked_users', async (req, res) => {
     res.sendStatus(200);
 });
 
+//  @desc remove user from kicked_users array in specific chat
 router.delete('/:chat_id/kicked_users/:user_id', async (req, res) => {
     try{
         await ChatService.removeKickedUser(req.params.chat_id, req.params.user_id);
@@ -316,7 +324,7 @@ router.delete('/:chat_id/join_requests/:request_id', async (req, res) => {
         console.log(err);
         res.sendStatus(500);
     }
-    
+
     res.sendStatus(200);
 });
 
