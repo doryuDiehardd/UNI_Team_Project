@@ -9,10 +9,10 @@ const UserExistsException = require('../services/exceptions/UserExistsException'
 
 router.post('/register', async (req, res) => {
     data = {
-        username: req.body.username ? req.body.username : null,
+        username: req.body.username || null,
         pic_path: 'placeholder',
-        email: req.body.email ? req.body.email : null,
-        password: req.body.password ? req.body.password : null
+        email: req.body.email || null,
+        password: req.body.password || null
     }
 
     //
@@ -48,9 +48,9 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', (req, res, next) => {
     data = {
-        username: req.body.username ? req.body.username : null,
-        email: req.body.email ? req.body.email : null,
-        password: req.body.password ? req.body.password : null
+        username: req.body.username || null,
+        email: req.body.email || null,
+        password: req.body.password || null
     }
 
     //
