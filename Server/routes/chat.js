@@ -69,6 +69,16 @@ router.delete('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
     let filtered_data = ValidationService.filterFields(req.body, ['name', 'owner_id']);
 
+    // 
+    // Validation
+    // 
+
+    if (!Object.keys(filtered_data).length){
+        return res.status(422).json({data_err: 'Incorrect / no data provided'});
+    }
+
+    // 
+
     try{
         await ChatService.updateChatData(req.params.id, filtered_data);
     }
@@ -218,6 +228,16 @@ router.get('/:chat_id/messages/:message_id', async (req, res) => {
 // @desc edit specific message + mark as edited / mark message as read
 router.put('/:chat_id/messages/:message_id', async (req, res) => {
     let filtered_data = ValidationService.filterFields(req.body, ['msg', 'is_viewed']);
+
+    // 
+    // Validation
+    // 
+
+    if (!Object.keys(filtered_data).length){
+        return res.status(422).json({data_err: 'Incorrect / no data provided'});
+    }
+
+    // 
 
     try{
         await ChatService.updateMessage(req.params.chat_id, req.params.message_id, filtered_data);
