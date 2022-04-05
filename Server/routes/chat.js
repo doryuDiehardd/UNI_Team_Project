@@ -78,6 +78,9 @@ router.put('/:id', (req, res) => {
 //* @route POST /messages
 //* @desc add new message
 
+//* @route GET /messages/:id
+//* @desc get specific message
+
 //* @route PUT /messages/:id
 //* @desc edit specific message + mark as edited / mark message as read
 
@@ -90,6 +93,10 @@ router.put('/:id', (req, res) => {
 
 //* @route POST /join_requests
 //* @desc create join request
+
+// * @route GET /join_requests/:id
+// * @desc get specific join request
+
 
 //* @route PUT /join_requests/:id
 //* @desc accept join request
