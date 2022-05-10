@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head') %>
+    
+    <title>Register</title>
+
+    <link rel="stylesheet" href="/public/css/register.css">
+    <link rel="stylesheet" href="/public/css/buttons.css">
+
+</head>
+<body>
+    <div class="register-popup">
+        <h1>Wellcome</h1>
+
+        <form method="POST">
+            <label for="name">Name</label>
+            <input type="text" name="username">
+
+            <label for="email">Email</label>
+            <input type="email" name="email" >
+
+            <label for="password">Password</label>
+            <input type="password" name="password">
+
+            <% if (route == 'register') { %>
+                <div class="action-buttons">
+                    <button type="submit" formaction="/auth/register" class="btn btn-regular btn-register">Register</button>
+                    <a href="/auth/login" class="btn btn-secondary btn-login">Login</a>
+                </div>
+            <% } %>
+            <% if (route == 'login') { %>
+                <div class="action-buttons">
+                    <button type="submit" formaction="/auth/login" class="btn btn-regular btn-register">Login</button>
+                    <a href="/auth/register" class="btn btn-secondary btn-login">Register</a>
+                </div>
+            <% } %>
+        </form>
+    </div>
+</body>
+</html>
