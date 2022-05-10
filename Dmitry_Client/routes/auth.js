@@ -7,9 +7,16 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
-    
-    console.log(req.body);
-    res.sendStatus(200);
+    axios.post('http://localhost:5000/auth/register',{
+        ...req.body
+    })
+    .then(response => {
+        res.send(response.status);
+    })
+    .catch(err => {
+        console.log(err);
+        res.sendStatus(500);
+    })
 });
 
 module.exports = router;
