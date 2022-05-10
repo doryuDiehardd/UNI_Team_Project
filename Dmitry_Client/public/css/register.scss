@@ -1,0 +1,77 @@
+.register-popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 600px;
+    height: 500px;
+
+    padding: 100px 50px;
+
+    background-color: rgb(30, 28, 37);
+
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+
+    border-radius: 15px;
+
+    h1{
+        font-size: 24pt;
+        color: white;
+    }
+
+    form{
+        width: 60%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        label{
+            align-self: flex-start;
+
+            margin-bottom: 10px;
+
+            font-weight: bold;
+
+            color: white;
+        }
+
+        input{
+            width: 100%;
+            height: 40px;
+
+            padding: 0 10px;
+            margin-bottom: 20px;
+
+            box-sizing: border-box;
+
+            font-size: 12pt;
+            font-weight: bold;
+
+            border: none;
+            border-radius: 5px;
+        }
+
+        .action-buttons{
+            width: 100%;
+
+            margin-top: 20px;
+            margin-bottom: 20px;
+            
+            .btn-register{
+                align-self: flex-start;
+            }
+
+            .btn-login{
+                float: right;
+            }
+        }
+    }
+}
