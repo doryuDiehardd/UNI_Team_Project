@@ -81,7 +81,7 @@ router.post('/login', (req, res, next) => {
             if (loginErr){
                 return next(loginErr);
             }
-            return res.sendStatus(200);
+            return res.status(200).json({ user: user });
         });
     })(req, res, next);
 });

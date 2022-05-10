@@ -38,7 +38,8 @@ router.post('/login', (req, res) => {
     })
     .then(response => {
         if (response.status === 200){
-            res.redirect('/')
+            req.session.user = response.data.user;
+            res.redirect('/');
         }
         else{
             res.sendStatus(response.status);
