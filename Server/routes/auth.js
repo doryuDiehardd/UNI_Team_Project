@@ -43,7 +43,7 @@ router.post('/register', async (req, res) => {
         }
     }
 
-    res.sendStatus(200);
+    res.status(200).json(req.user);
 });
 
 router.post('/login', (req, res, next) => {
@@ -81,7 +81,7 @@ router.post('/login', (req, res, next) => {
             if (loginErr){
                 return next(loginErr);
             }
-            return res.status(200).json({ user: user });
+            return res.status(200).json(user);
         });
     })(req, res, next);
 });
