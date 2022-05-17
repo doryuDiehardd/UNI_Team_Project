@@ -6,6 +6,10 @@ const ChatService = {
         return ChatModel.create(data);
     },
     
+    getChatsRelatedToUser(user_id){
+        return ChatModel.find({ related_users: user_id });
+    },
+
     getChatData: (id) => {
         return ChatModel.findById(id);
     },

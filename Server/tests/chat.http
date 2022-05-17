@@ -8,6 +8,10 @@ Content-Type: application/json
 
 ###
 
+GET http://localhost:5000/chat/related_to/62482ad51f5d80e4751e93cf HTTP/1.1
+
+###
+
 GET http://localhost:5000/chat/624984375744d7ebca4cf2e6 HTTP/1.1
 
 ###

@@ -37,6 +37,18 @@ router.post('/create', async (req, res) => {
     res.sendStatus(200);
 });
 
+// @desc get all chats related to user
+router.get('/related_to/:user_id', async (req, res) => {
+    try{
+        const chats = await ChatService.getChatsRelatedToUser(req.params.user_id);
+        res.status(200).json({chats});
+    }
+    catch (err){
+        console.log(err);
+        res.sendStatus(500);
+    }
+});
+
 //  @desc get chat by id
 router.get('/:id', async (req, res) => {
     let chat_data;
