@@ -4,11 +4,17 @@
     <%- include('partials/head') %>
 
     <link rel="stylesheet" href="/public/css/dashboard/dashboard.css">
+    <link rel="stylesheet" href="/public/css/dashboard/create_chat_popup.css">
+    <link rel="stylesheet" href="/public/css/page_fade.css">
 
     <title>Dashboard</title>
 </head>
 <body>
     <div class="container-dashboard">
+        <div class="menubar">
+            <div class="menu-btn btn-create-chat"><span>+</span></div>
+        </div>
+
         <div class="container-all-chats">
 
             <% chats.forEach(chat => { %>
@@ -24,5 +30,8 @@
             
         </div>
     </div>
+
+    <div class="page-fade"></div>
+    <%- include('./partials/create_chat_popup')%>
 </body>
 </html>

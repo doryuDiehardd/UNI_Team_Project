@@ -1,0 +1,9 @@
+.page-fade {
+  display: none;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0007;
+  z-index: 2;
+}
+/*# sourceMappingURL=page_fade.css.map */

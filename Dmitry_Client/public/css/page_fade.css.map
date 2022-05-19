@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAA;EACN,OAAO,EAAE,IAAI;EAEb,QAAQ,EAAE,QAAQ;EAElB,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EAEb,gBAAgB,EAAE,KAAK;EAEvB,OAAO,EAAE,CAAC;CACb",
+    "sources": [
+        "page_fade.scss"
+    ],
+    "names": [],
+    "file": "page_fade.css"
+}
