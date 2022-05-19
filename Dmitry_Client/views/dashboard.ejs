@@ -8,6 +8,21 @@
     <title>Dashboard</title>
 </head>
 <body>
+    <div class="container-dashboard">
+        <div class="container-all-chats">
 
+            <% chats.forEach(chat => { %>
+                <div class="chat">
+                    <div class="circle"></div>
+                    <p><%= chat.name %></p>
+                </div>
+            <% }); %>
+
+        </div>
+
+        <div class="container-opened-chat">
+            
+        </div>
+    </div>
 </body>
 </html>
