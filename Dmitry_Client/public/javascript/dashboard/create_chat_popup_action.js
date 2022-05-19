@@ -14,6 +14,10 @@ document.querySelector('.create-chat-popup button')
         })
     });
 
+    // ? use PUB SUB
+    // emit 'chat created'
+    // catch and update chats block
+    
     if (rawResponse.status === 200){
         page_fade.click(); // Hide popup
         update_chats();
