@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="/public/css/page_fade.css">
 
     <script defer src="/public/javascript/dashboard/menu_button_actions.js"></script>
+    <script defer src="/public/javascript/dashboard/create_chat_popup_action.js"></script>
 
     <title>Dashboard</title>
 </head>
 <body>
-    <div class="container-dashboard">
+    <div class="container-dashboard" data-user-id="<%- user._id %>">
         <div class="menubar">
             <div class="menu-btn" id="menu-btn-create-chat"><span>+</span></div>
         </div>
