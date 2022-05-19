@@ -10,6 +10,11 @@ document.getElementById('menu-btn-create-chat').addEventListener('click', () => 
     page_fade.style.display = 'block';
 });
 
+page_fade.addEventListener('click', () => {
+    create_chat_popup.style.display = 'none';
+    page_fade.style.display = 'none';
+});
+
 // 
 // 
 // 
