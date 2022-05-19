@@ -3,7 +3,6 @@ async function update_chats(){
     
     const rawChats = await fetch(`http://localhost:5000/chat/related_to/${user_id}`);
     const chats_get_data = await rawChats.json();
-    // console.log(chats_get_data.chats);
 
     // Update
 
@@ -21,4 +20,6 @@ async function update_chats(){
         `
         );
     });
+
+    init_chat_blocks_action_events();
 }
