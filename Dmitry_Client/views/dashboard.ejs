@@ -5,6 +5,7 @@
 
     <link rel="stylesheet" href="/public/css/dashboard/dashboard.css">
     <link rel="stylesheet" href="/public/css/dashboard/create_chat_popup.css">
+    <link rel="stylesheet" href="/public/css/dashboard/container_opened_chat.css">
     <link rel="stylesheet" href="/public/css/page_fade.css">
 
     <script defer src="/public/javascript/dashboard/menu/menu_button_actions.js"></script>
@@ -30,12 +31,19 @@
         </div>
 
         <div class="container-opened-chat">
-            
+            <div class="msg-container">
+                <div class="no-chat-opened-msg">
+                    <h1>No chat opened yet</h1>
+                    <span class="awesome"></span>
+                </div>
+            </div>
+
+
         </div>
     </div>
 
     <div class="page-fade"></div>
-    <%- include('./partials/create_chat_popup')%>
+    <%- include('./partials/create_chat_popup'); %>
 
     <script>const user_id = document.querySelector('.container-dashboard').getAttribute('data-user-id'); </script>
     <script src="/public/javascript/dashboard/menu/update_chats.js"></script>

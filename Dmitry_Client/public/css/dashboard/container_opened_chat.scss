@@ -1,0 +1,36 @@
+.container-opened-chat{
+    padding: 50px;
+    box-sizing: border-box;
+
+    .msg-container{
+        position: relative;
+
+        height: 100%;
+
+        .no-chat-opened-msg{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 100%;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            .awesome{
+                display: inline-block;
+                
+                width: 40px;
+                height: 40px;
+
+                margin-left: 30px;
+
+                background-image: url('/public/icons/awesome.svg');
+                background-position: center;
+                background-size: contain;
+            }
+        }
+    }
+}
