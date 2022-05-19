@@ -12,7 +12,7 @@
         <div class="container-all-chats">
 
             <% chats.forEach(chat => { %>
-                <div class="chat">
+                <div class="chat" data-chat-id="<%= chat._id %>">
                     <div class="circle"></div>
                     <p><%= chat.name %></p>
                 </div>
