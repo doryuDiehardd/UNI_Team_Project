@@ -36,12 +36,12 @@
   scale: 1.2;
 }
 
-.container-dashboard .menubar .btn-create-chat {
+.container-dashboard .menubar #menu-btn-create-chat {
   position: relative;
   background-color: #d9ff00;
 }
 
-.container-dashboard .menubar .btn-create-chat span {
+.container-dashboard .menubar #menu-btn-create-chat span {
   position: absolute;
   top: 48%;
   left: 50%;
