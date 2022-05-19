@@ -2,8 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const session = require('express-session');
+const cors = require('cors');
 
 const app = express();
+
+app.use(cors());
 
 const ChatDB = require('./config/keys').MongoChatDBURI;
     mongoose.connect(ChatDB)
