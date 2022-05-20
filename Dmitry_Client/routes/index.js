@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 
     // ! Placeholder user
     // * use req.session.user._id instead
-    const chats_get_result = await axios.get('/chat/related_to/62482ad51f5d80e4751e93cf');
+    const chats_get_result = await axios.get('/chat/related_to/627a50542b9cd30f7328c7a8');
 
     // console.log(chats_get_result.data.chats[0]);
 
@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
     // * use req.session.user instead
     
     res.render('dashboard', {
-        user: {_id: '62482ad51f5d80e4751e93cf'},
+        user: {_id: '627a50542b9cd30f7328c7a8'},
         chats: chats_get_result.data.chats
     });
 });

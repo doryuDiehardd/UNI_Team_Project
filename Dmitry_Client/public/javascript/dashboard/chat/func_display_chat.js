@@ -9,4 +9,7 @@ function display_chat(chat_data){
     // else 
     // clear prev chat content, if any
     // build_chat()
+    document.querySelector('.opened-chat').style.display = 'block';
+    document.querySelector('.all-messages-container').style.display = 'block';
+    init_messages(chat_data.messages);
 }
