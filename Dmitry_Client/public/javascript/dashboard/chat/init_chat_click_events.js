@@ -8,6 +8,7 @@ function init_chat_blocks_action_events(){
 
             // TODO remove other .active classes, if any
             this.classList.add('active');
+            active_chat_id = this.getAttribute('data-chat-id'); // defined globally in html
             display_chat(chat_data);
         });
     });
