@@ -44,10 +44,13 @@
   height: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border-style: dashed;
 }
 
 .container-opened-chat .opened-chat .no-msgs-yet {
+  display: none;
+}
+
+.container-opened-chat .opened-chat .all-messages-container {
   display: none;
 }
 

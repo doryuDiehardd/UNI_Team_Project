@@ -6,7 +6,9 @@ function init_chat_blocks_action_events(){
             const raw_chat_data = await fetch(`http://localhost:5000/chat/${ this.getAttribute('data-chat-id') }`);
             const chat_data = await raw_chat_data.json();
 
-            console.log(chat_data);
+            // TODO remove other .active classes, if any
+            this.classList.add('active');
+            display_chat(chat_data);
         });
     });
 }

@@ -88,6 +88,10 @@
   font-size: 12pt;
 }
 
+.container-dashboard .container-all-chats .chat.active {
+  background-color: #0005;
+}
+
 .container-dashboard .container-all-chats .chat:hover {
   cursor: pointer;
   background-color: #0001;

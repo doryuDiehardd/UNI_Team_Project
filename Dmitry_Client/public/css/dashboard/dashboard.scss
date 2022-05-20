@@ -93,6 +93,9 @@
                 font-size: 12pt;
             }
         }
+        .chat.active{
+            background-color: #0005;
+        }
         .chat:hover{
             cursor: pointer;
             background-color: #0001;
