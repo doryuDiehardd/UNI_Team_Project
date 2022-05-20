@@ -19,7 +19,4 @@ document.getElementById('btn-send-message')
     });
 
     console.log(rawResponse.status);
-
-    // message
-    // owner id
 });

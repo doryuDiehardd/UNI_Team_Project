@@ -19,7 +19,7 @@ document.querySelector('.create-chat-popup button')
     // catch and update chats block
     
     if (rawResponse.status === 200){
-        page_fade.click(); // Hide popup
+        document.querySelector('.page-fade').click(); // Hide popup
         update_chats();
     }
 });

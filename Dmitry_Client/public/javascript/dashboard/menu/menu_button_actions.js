@@ -1,5 +1,6 @@
 // 
 // Create chat button
+// opens create chat prompt (popup)
 // 
 
 const create_chat_popup = document.querySelector('.create-chat-popup');

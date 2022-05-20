@@ -21,5 +21,5 @@ async function update_chats(){
         );
     });
 
-    init_chat_blocks_action_events();
+    init_chat_click_events();
 }

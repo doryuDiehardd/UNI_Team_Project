@@ -9,12 +9,6 @@
     <link rel="stylesheet" href="/public/css/page_fade.css">
 
     
-    <script defer src="/public/javascript/dashboard/menu/menu_button_actions.js"></script>
-    
-    <script defer> var active_chat_id; </script>
-    <script defer src="/public/javascript/dashboard/chat/display_chat.js"></script>
-    <script defer src="/public/javascript/dashboard/chat/init_chat_click_events.js"></script>
-    <script defer src="/public/javascript/dashboard/chat/action_send_message.js"></script>
     
     <title>Dashboard</title>
 </head>
@@ -99,9 +93,24 @@
     <div class="page-fade"></div>
     <%- include('./partials/create_chat_popup'); %>
 
-    <script>const user_id = document.querySelector('.container-dashboard').getAttribute('data-user-id'); </script>
-    <script src="/public/javascript/dashboard/menu/update_chats.js"></script>
+    <!-- Global -->
+    <script> var user_id = document.querySelector('.container-dashboard').getAttribute('data-user-id'); </script>
+    <script> var active_chat_id; </script>
+
+    
+    <!-- Menu -->
+    <script src="/public/javascript/dashboard/menu/menu_button_actions.js"></script>
+
+    <!-- Create chat popup -->
+    <script src="/public/javascript/dashboard/menu/func_update_chats.js"></script>
     <script src="/public/javascript/dashboard/menu/create_chat_popup_action.js"></script>
 
+
+    <!-- Chat -->
+    <script src="/public/javascript/dashboard/chat/func_display_chat.js"></script>
+    <script src="/public/javascript/dashboard/chat/func_init_chat_click_events.js"></script>
+    <script>init_chat_click_events()</script>
+    
+    <script src="/public/javascript/dashboard/chat/action_send_message.js"></script>
 </body>
 </html>

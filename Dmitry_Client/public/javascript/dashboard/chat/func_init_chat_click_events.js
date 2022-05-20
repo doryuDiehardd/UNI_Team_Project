@@ -1,4 +1,4 @@
-function init_chat_blocks_action_events(){
+function init_chat_click_events(){
     const chat_blocks = Array.from(document.querySelectorAll('.chat'));
 
     chat_blocks.forEach(chat_block => {
@@ -9,9 +9,8 @@ function init_chat_blocks_action_events(){
             // TODO remove other .active classes, if any
             this.classList.add('active');
             active_chat_id = this.getAttribute('data-chat-id'); // defined globally in html
+            
             display_chat(chat_data);
         });
     });
 }
-
-init_chat_blocks_action_events();
