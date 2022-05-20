@@ -1,16 +1,4 @@
-.container-opened-chat {
-  padding: 50px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.container-opened-chat .msg-container {
-  display: none;
-  position: relative;
-  height: 100%;
-}
-
-.container-opened-chat .msg-container .no-chat-opened-msg {
+.status-msg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,7 +16,7 @@
           transform: translate(-50%, -50%);
 }
 
-.container-opened-chat .msg-container .no-chat-opened-msg .awesome {
+.status-msg .awesome {
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -38,13 +26,29 @@
   background-size: contain;
 }
 
+.container-opened-chat {
+  padding: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container-opened-chat .status-msg-container {
+  position: relative;
+  height: 100%;
+}
+
 .container-opened-chat .opened-chat {
+  display: none;
   position: relative;
   padding-bottom: 50px;
   height: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-style: dashed;
+}
+
+.container-opened-chat .opened-chat .no-msgs-yet {
+  display: none;
 }
 
 .container-opened-chat .opened-chat .all-messages-container .message-block {
