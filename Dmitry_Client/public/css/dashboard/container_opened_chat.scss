@@ -48,6 +48,98 @@
 
         border-style: dashed;
 
+        .all-messages-container{
+            // display: flex;
+            // flex-direction: column;
+
+            .message-block{
+                display: flex;
+                flex-direction: column;
+
+                font-size: 12pt;
+
+                .name-container{
+                    display: flex;
+                    align-items: center;
+
+                    margin-bottom: 20px;
+    
+                    .name{
+                        display: flex;
+                        align-items: center;
+    
+                        padding: 0 20px;
+                        height: 32px;
+    
+                        color: #CDCDCD;
+                        background-color: #25262e;
+
+                        border-radius: 40px;
+                    }
+    
+                    .circle{
+                        width: 32px;
+                        height: 32px;
+    
+                        margin: 0 12px;
+        
+                        border-radius: 50%;
+                    }
+                }
+
+                .messages{
+                    display: flex;
+                    flex-direction: column;
+
+                    .message-content{
+                        display: flex;
+                        align-items: center;
+
+                        padding: 0 20px;
+
+                        width: fit-content;
+                        height: 40px;
+
+                        font-weight: bold;
+
+                        background-color: #2B2B2B;
+                    
+                        border-radius: 40px;
+                    }
+
+                    .message-content:not(:last-child){
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+            .my-message-block{
+                align-items: flex-end;
+
+                .name-container{
+                    .circle{
+                        background-color: #FFD600;
+                    }
+                }
+
+                .messages{
+                    align-items: flex-end;
+                }
+            }
+            .member-message-block{
+                align-items: flex-start;
+
+                .name-container{
+                    .circle{
+                        background-color: #3461FF;
+                    }
+                }
+
+                .messages{
+                    align-items: flex-start;
+                }
+            }
+        }
+
         .message-input-group{
             position: absolute;
             bottom: 0;
