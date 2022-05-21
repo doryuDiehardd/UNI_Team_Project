@@ -2,6 +2,10 @@ GET http://localhost:5000/profile/62482ad51f5d80e4751e93cf HTTP/1.1
 
 ###
 
+GET http://localhost:5000/profile/by_name/alex HTTP/1.1
+
+###
+
 PUT http://localhost:5000/profile/62482ad51f5d80e4751e93cf HTTP/1.1
 Content-Type: application/json
 

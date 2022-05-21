@@ -19,6 +19,18 @@ router.get('/:id', async (req, res) => {
     res.status(200).json(user_data);
 });
 
+// @desc get user by name
+router.get('/by_name/:name', async (req, res) => {
+    try{
+        let users = await ProfileService.getByName(req.params.name);
+        res.status(200).json(users);
+    }
+    catch (err){
+        console.log(err);
+        res.sendStatus(500);
+    }
+});
+
 // @desc update user by id
 router.put('/:id', async (req, res) => {
     let filtered_data = ValidationService.filterFields(req.body, ['username', 'email']);

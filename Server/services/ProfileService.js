@@ -7,6 +7,10 @@ const ProfileService = {
         return UserModel.findById(id);
     },
 
+    getByName: (name) => {
+        return UserModel.find({ "username": {$regex: new RegExp(name, 'i')} });
+    },
+
     updateUserData: (id, data) =>{
         return UserModel.findOneAndUpdate({"_id": id}, {"$set": data});
     },
