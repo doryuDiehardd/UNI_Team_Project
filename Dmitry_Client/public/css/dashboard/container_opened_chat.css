@@ -33,12 +33,12 @@
 }
 
 .container-opened-chat .status-msg-container {
-  display: none;
   position: relative;
   height: 100%;
 }
 
 .container-opened-chat .opened-chat {
+  display: none;
   position: relative;
   padding-bottom: 50px;
   height: 100%;
@@ -56,7 +56,7 @@
   border-radius: 10px;
 }
 
-.container-opened-chat .opened-chat .chat-header .btn-chat-menu {
+.container-opened-chat .opened-chat .chat-header #btn-open-chat-menu {
   float: right;
   width: 34px;
   height: 34px;
@@ -68,12 +68,13 @@
   background-repeat: no-repeat;
 }
 
-.container-opened-chat .opened-chat .chat-header .btn-chat-menu:hover {
+.container-opened-chat .opened-chat .chat-header #btn-open-chat-menu:hover {
   cursor: pointer;
   background-color: #0006;
 }
 
-.container-opened-chat .opened-chat .chat-header .chat-menu {
+.container-opened-chat .opened-chat .chat-header #chat-menu {
+  display: none;
   position: absolute;
   top: 34px;
   right: 20px;
@@ -82,7 +83,7 @@
   border-radius: 5px;
 }
 
-.container-opened-chat .opened-chat .chat-header .chat-menu button {
+.container-opened-chat .opened-chat .chat-header #chat-menu button {
   width: 100%;
   padding: 10px 12px;
   font-size: 12pt;
@@ -92,12 +93,16 @@
   border-radius: 5px;
 }
 
-.container-opened-chat .opened-chat .chat-header .chat-menu button:hover {
+.container-opened-chat .opened-chat .chat-header #chat-menu button:hover {
   cursor: pointer;
   background-color: #ffffff05;
 }
 
 .container-opened-chat .opened-chat .no-msgs-yet {
+  display: none;
+}
+
+.container-opened-chat .opened-chat .all-messages-container {
   display: none;
 }
 

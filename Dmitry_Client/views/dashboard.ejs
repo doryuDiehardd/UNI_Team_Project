@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="/public/css/dashboard/container_opened_chat.css">
     <link rel="stylesheet" href="/public/css/page_fade.css">
 
-    
-    
     <title>Dashboard</title>
 </head>
 <body>
@@ -40,9 +38,9 @@
             <div class="opened-chat">
 
                 <div class="chat-header">
-                    <div class="btn-chat-menu"></div>
-                    <div class="chat-menu">
-                        <button>Add user</button>
+                    <div id="btn-open-chat-menu"></div>
+                    <div id="chat-menu">
+                        <button id="btn-add-user">Add user</button>
                     </div>
                 </div>
 
@@ -53,7 +51,7 @@
 
                 <div class="all-messages-container">
 
-                    <div class="message-block my-message-block">
+                    <!-- <div class="message-block my-message-block">
                         <div class="name-container">
                             <div class="circle"></div>
                             <span class="name">Dmitry:</span>
@@ -62,7 +60,7 @@
                         <div class="messages">
                             <div class="message-content">Message text lorem ipsum ds</div>
                         </div>
-                    </div>
+                    </div> -->
     
                     <!-- <div class="message-block member-message-block">
                         <div class="name-container">
@@ -120,5 +118,10 @@
     <script>init_chat_click_events()</script>
     
     <script src="/public/javascript/dashboard/chat/action_send_message.js"></script>
+
+    <!-- Chat menu -->
+    <script src="/public/javascript/dashboard/chat/chat_menu/btn_open_chat_menu_action.js"></script>
+    <script src="/public/javascript/dashboard/chat/chat_menu/chat_menu_actions.js"></script>
+
 </body>
 </html>
