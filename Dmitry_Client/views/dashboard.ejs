@@ -4,7 +4,7 @@
     <%- include('partials/head') %>
 
     <link rel="stylesheet" href="/public/css/dashboard/dashboard.css">
-    <link rel="stylesheet" href="/public/css/dashboard/create_chat_popup.css">
+    <link rel="stylesheet" href="/public/css/dashboard/popup.css">
     <link rel="stylesheet" href="/public/css/dashboard/container_opened_chat.css">
     <link rel="stylesheet" href="/public/css/page_fade.css">
 
@@ -97,6 +97,7 @@
 
     <div class="page-fade"></div>
     <%- include('./partials/create_chat_popup'); %>
+    <%- include('./partials/add_user_popup'); %>
 
     <!-- Global -->
     <script> var user_id = document.querySelector('.container-dashboard').getAttribute('data-user-id'); </script>

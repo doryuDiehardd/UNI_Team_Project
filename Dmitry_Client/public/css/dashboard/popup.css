@@ -1,5 +1,4 @@
-.create-chat-popup {
-  display: none;
+.popup {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -15,13 +14,13 @@
   z-index: 3;
 }
 
-.create-chat-popup p {
+.popup p {
   text-align: center;
   font-size: 14pt;
   margin-bottom: 40px;
 }
 
-.create-chat-popup input {
+.popup input {
   width: 100%;
   padding: 10px 16px;
   margin-bottom: 30px;
@@ -33,7 +32,7 @@
   border-radius: 5px;
 }
 
-.create-chat-popup button {
+.popup button {
   padding: 10px 20px;
   font-size: 12pt;
   font-weight: bold;
@@ -41,8 +40,12 @@
   border: none;
 }
 
-.create-chat-popup button:hover {
+.popup button:hover {
   cursor: pointer;
   background-color: #15aacf;
 }
-/*# sourceMappingURL=create_chat_popup.css.map */
+
+#create-chat-popup {
+  display: none;
+}
+/*# sourceMappingURL=popup.css.map */

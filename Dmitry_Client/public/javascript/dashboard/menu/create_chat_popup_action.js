@@ -1,6 +1,6 @@
 const inp_name = document.querySelector('.create-chat-popup #chat-name');
 
-document.querySelector('.create-chat-popup button')
+document.querySelector('#create-chat-popup button')
 .addEventListener('click', async () => {
     const rawResponse = await fetch('http://localhost:5000/chat/create', {
         method: 'POST',

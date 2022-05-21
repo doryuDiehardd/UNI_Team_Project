@@ -3,6 +3,6 @@
 // 
 
 document.getElementById('btn-add-user')
-.addEventListener('click', () => {
-    console.log('click');
+.addEventListener('click', async () => {
+    // Opens add user popup
 });

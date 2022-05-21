@@ -1,5 +1,5 @@
-.create-chat-popup{
-    display: none; // initial
+.popup{
+    // display: none; // initial
 
     position: absolute;
     top: 50%;
@@ -54,4 +54,8 @@
         cursor: pointer;
         background-color: rgb(21, 170, 207);
     }
+}
+
+#create-chat-popup{
+    display: none;
 }
