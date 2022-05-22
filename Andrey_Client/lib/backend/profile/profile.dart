@@ -11,7 +11,6 @@ import '../../screens/profile_screen.dart';
 profile(context)async{
   SharedPreferences prefs = await SharedPreferences.getInstance();
   late http.Response res;
-  Map <String, dynamic>? map;
   try {
     res = await http.get(Uri.parse("${baseUrl}profile/${prefs.getString('_id')}"),
     headers: <String, String>{
@@ -20,7 +19,6 @@ profile(context)async{
       "charset": "utf-8"
     });
     print(res.body);
-    map = jsonDecode(res.body);
     
     print(res.statusCode);
   } on FormatException catch(e){
